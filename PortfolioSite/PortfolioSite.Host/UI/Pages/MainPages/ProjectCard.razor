@@ -1,0 +1,39 @@
+@using PortfolioSite.Host.Models
+<div class="group relative w-72 bg-slate-100 dark:bg-slate-900 rounded-md border-2 dark:border-slate-900 hover:border-accent flex flex-col justify-between py-8 px-4">
+    <div class="space-y-4">
+        <div class="flex justify-center">
+            <span class="text-xl font-display font-semibold text-shadow">@Project.Title</span>
+        </div>
+        <p class="text-base indent-4 font-medium">@Project.Description</p>
+        <div>
+            <p class="text-normal font-medium">The Stack:</p>
+            <ul class="list-disc list-inside px-4">
+                @foreach (string tech in Project.TechStack)
+                {
+                    <li class="text-sm tracking-wider font-medium">@tech</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-around items-center rounded-md invisible group-hover:backdrop-blur-md group-hover:bg-slate-300/50 group-hover:visible">
+        <div class="flex flex-col justify-around space-y-4">
+            @if (!string.IsNullOrEmpty(Project.RepoLink))
+            {
+                <a class="px-4 py-2 text-center shadow-sm dark:shadow-lg dark:shadow-black shadow-black bg-slate-100 dark:bg-slate-900 hover:outline hover:outline-2 hover:outline-accent rounded-full tracking-wider uppercase text-base font-sm">GitHub Repo</a>
+            }
+            @if (!string.IsNullOrEmpty(Project.DemoLink))
+            {
+                <a class="px-4 py-2 text-center shadow-sm dark:shadow-lg dark:shadow-black shadow-black bg-slate-100 dark:bg-slate-900 hover:outline hover:outline-2 hover:outline-accent rounded-full tracking-wider uppercase text-base font-sm">Demo</a>
+            }
+            @if (!string.IsNullOrEmpty(Project.LiveSite))
+            {
+                <a class="px-4 py-2 text-center shadow-sm dark:shadow-lg dark:shadow-black shadow-black bg-slate-100 dark:bg-slate-900 hover:outline hover:outline-2 hover:outline-accent rounded-full tracking-wider uppercase text-base font-sm">Live Site</a>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public required ProjectBrief Project { get; set; }
+}

@@ -1,0 +1,32 @@
+﻿@page "/projects"
+@using PortfolioSite.Host.Models
+
+<PageTitle>B C Williams | Dev - Projects</PageTitle>
+<HeadContent>
+    <meta name="description" content="Projects page for B C Williams | Dev" />
+</HeadContent>
+
+<div class="flex flex-wrap justify-center gap-8 px-4 pt-4">
+    @foreach(ProjectBrief project in _projects)
+    {
+        <ProjectCard Project="project"/>
+    }
+</div>
+
+@code {
+    private ProjectBrief[] _projects = new ProjectBrief[]
+    {
+        new ProjectBrief("EDGE Talent", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("BCWilliams.Dev", "Landing page and portfolio host / playground for yours truly.", [".NET8", "Blazor SSR & WASM", "Tailwind CSS", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("Project Title", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("Project Title", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("Project Title", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("Project Title", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("Project Title", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("Project Title", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("Project Title", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("Project Title", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+        new ProjectBrief("Project Title", "Business support app for a talent management agency.", [".NET7", "Blazor Server", "MudBlazor UI", "EF Core", "MSSQL"], "Repo", "Demo", "Demo"),
+    };
+
+}

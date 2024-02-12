@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+PortfolioSite/PortfolioSite.Host/tailwindcss.exe
+PortfolioSite/PortfolioSite.Host/appsettings.Development.json

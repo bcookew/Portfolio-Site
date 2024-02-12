@@ -1,0 +1,76 @@
+﻿@page "/contact"
+@using PortfolioSite.Host.Models
+@using PortfolioSite.Host.Services
+@using System.Web
+@inject NavigationManager NavMan
+@inject Web3FormsService Web3FormsService
+
+<PageTitle>B C Williams | Dev - Contact Me</PageTitle>
+<HeadContent>
+    <meta name="description" content="Contact form for B C Williams | Dev">
+</HeadContent>
+
+<Modal>
+    <h1 class="self-center md:self-start text-3xl">Say Hello!</h1>
+    <EditForm id="contact-form" class="" Model="contactFormModel" Enhance method="post" OnValidSubmit="HandleValidSubmitAsync" FormName="ContactForm">
+         <DataAnnotationsValidator />
+         <div class="flex flex-col space-y-8">
+             <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                 <div class="dark:bg-slate-950 has-[.invalid]:border-red-600 transition-all has-[:autofill]:border-accent duration-200 relative border border-slate-400 focus-within:border-accent">
+                     <InputText DisplayName="Name" class="peer bg-inherit text-md px-2 pt-5 pb-1 dark:placeholder-slate-100 transition-all focus:placeholder-transparent"
+                                @bind-Value="contactFormModel.Name" placeholder="What's your name?" />
+                     <label class="absolute top-1 left-2 dark:text-gray-200 text-sm peer-autofill:text-black">Name:</label>
+                     <ValidationMessage class="absolute -bottom-6 text-sm text-red-600 transition-all duration-200" For="() => contactFormModel.Name" />
+                 </div>
+                 <div class="dark:bg-slate-950 has-[.invalid]:border-red-600 transition-all has-[:autofill]:border-accent duration-200 relative border border-slate-400 focus-within:border-accent">
+                     <InputText DisplayName="Email" class="peer bg-inherit px-2 pt-5 pb-1 dark:placeholder-slate-100 transition-all focus:placeholder-transparent"
+                                @bind-Value="contactFormModel.Email" placeholder="What's your eMail?" />
+                     <label class="absolute top-1 left-2 dark:text-gray-200 text-sm peer-autofill:text-black">Email:</label>
+                     <ValidationMessage class="absolute -bottom-6 text-sm text-red-600 transition-all duration-200" For="() => contactFormModel.Email" />
+                 </div>
+             </div>
+             <div class="flex flex-col">
+                 <div class="flex dark:bg-slate-950 has-[.invalid]:border-red-600 transition-all has-[:autofill]:border-accent duration-200 relative border border-slate-400 focus-within:border-accent">
+                     <InputTextArea rows="10" maxlength="500" oninput="updateCharCount(this)" class="peer bg-inherit w-full outline-0 px-2 pt-5 pb-5 dark:placeholder-slate-100 transition-all focus:placeholder-transparent resize-none" @bind-Value="contactFormModel.Message" placeholder="What can I do for you?" />
+                     <label class="absolute top-1 left-2 dark:text-gray-200 text-sm peer-autofill:text-black">Message:</label>
+                     <label class="absolute bottom-1 right-2 dark:text-gray-200 text-xs peer-autofill:text-black"><span id="count">0</span>/500</label>
+                     <ValidationMessage class="absolute -bottom-6 text-sm text-red-600 transition-all duration-200" For="() => contactFormModel.Message" />
+                 </div>
+             </div>
+             <div class="flex flex-row justify-between">
+                 <a class="mt-4 rounded-full w-fit outline outline-2 outline-accent dark:bg-slate-800 transition-colors duration-200 hover:bg-accent hover:text-slate-100 py-2 px-4" href="@(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl)">Back</a>
+                 <button class="mt-4 rounded-full w-fit outline outline-2 outline-accent dark:bg-slate-800 transition-colors duration-200 hover:bg-accent hover:text-slate-100 py-2 px-4" type="submit">Submit</button>
+             </div>
+         </div>
+     </EditForm>
+ </Modal>
+
+ <script>
+    const updateCharCount = (textArea) => {
+        let counter = document.getElementById('count')
+        counter.innerText = textArea.value.length;
+    }
+ </script>
+
+ @code {
+    [SupplyParameterFromForm]
+    private ContactFormModel contactFormModel { get; set; } = new ContactFormModel();
+    [SupplyParameterFromQuery]
+    public string? returnUrl { get; set; }
+
+
+    private async Task HandleValidSubmitAsync()
+    {
+        bool success = await Web3FormsService.SendFormAsync(contactFormModel);
+
+        if(success)
+        {
+            NavMan.NavigateTo("/contact/true");
+        }
+        else
+        {
+            string queryString = "?message=" + HttpUtility.UrlEncode(contactFormModel.Message, System.Text.Encoding.ASCII);
+            NavMan.NavigateTo($"/contact/false{queryString}");
+        }
+    }
+}

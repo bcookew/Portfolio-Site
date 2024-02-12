@@ -1,0 +1,58 @@
+﻿@font-face {
+    font-family: 'Montserrat';
+    font-weight:100 900;
+    src: url("./Fonts/Montserrat-VariableFont_wght.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Jura';
+    font-weight: 300 700;
+    src: url("./Fonts/Jura-VariableFont_wght.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Stick-No-Bills';
+    font-weight: 200 800;
+    src: url("./Fonts/StickNoBills-VariableFont_wght.ttf") format('truetype');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    input {
+        @apply focus-visible:outline-0;
+        @apply focus:outline-0;
+    }
+    .mobile-nav {
+        filter: drop-shadow(0 0 4px rgba(0,0,0,0.25));
+    }
+    .text-shadow {
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+    }
+    .heading-accent {
+        width: calc(100% + 2rem);
+    }
+    .desktop-nav {
+        box-shadow: 0 2px 4px 1px rgba(0,0,0,0.25);
+        @apply shadow-slate-700;
+    }
+    .github-icon {
+        filter: drop-shadow(0, 0, 16px, rebeccapurple)
+    }
+}
+
+.active {
+    box-shadow: inset 0 0 4px 0px rgba(0, 0, 0, 0.25);
+    @apply shadow-black;
+    @apply border-b-2 border-accent;
+}
+
+@media (prefers-color-scheme: dark) {
+    .active {
+        box-shadow: inset 0 0 4px 1px rgba(0, 0, 0, 0.5);
+        @apply bg-slate-800;
+    }
+}
+

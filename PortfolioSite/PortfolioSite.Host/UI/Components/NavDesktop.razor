@@ -1,0 +1,13 @@
+@inject NavigationManager NavMan
+<div class="sticky top-0 z-50 hidden rounded-b-md desktop-nav md:block w-full dark:bg-slate-900 bg-slate-100">
+    <div class="flex flex-row justify-between items-stretch pl-4">
+        <div class="py-3 rounded-b-md">
+            <a href="/" class="font-logo font-medium tracking-wider text-4xl lg:text-5xl text-shadow hover:text-accent">Benjamin C Williams | Dev</a>
+        </div>
+        <div class="flex flex-row min-w-80">
+            <NavLink class="flex basis-1/3 h-full justify-center items-center px-2 text-shadow hover:text-accent text-xl" href="/projects">Projects</NavLink>
+            <NavLink Match="NavLinkMatch.Prefix" class="flex basis-1/3 h-full justify-center items-center px-2 text-shadow hover:text-accent text-xl" href="/about-me">About</NavLink>
+            <NavLink class="flex basis-1/3 h-full justify-center items-center px-2 text-shadow hover:text-accent text-xl" href="@($"/contact?returnUrl={NavMan.ToBaseRelativePath(NavMan.Uri)}")">Contact</NavLink>
+        </div>
+    </div>
+</div>

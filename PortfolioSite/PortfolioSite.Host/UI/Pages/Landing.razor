@@ -1,0 +1,69 @@
+﻿@page "/"
+
+<PageTitle>B C Williams | Dev</PageTitle>
+<HeadContent>
+    <meta name="description" content="Landing page for B C Williams | Dev" />
+</HeadContent>
+
+<div class="flex justify-center items-center">
+    <Modal>
+        <div class="flex flex-col md:flex-row space-y-8 md:space-x-4 justify-center items-center relative z-10">
+            <div style="box-shadow: inset 0px 0px 8px 8px #0f172a;" class="rounded-full max-w-xs md:max-w-none md:size-auto md:basis-1/3">
+                <img src="./Images/headshot.jpg" alt="Headshot of Benjamin C Williams" class="p-px relative -z-10 rounded-full grayscale" />
+            </div>
+            <div class="flex flex-col md:basis-2/3">
+                <span id="title-descriptors" class="text-normal font-sans mb-2 dark:text-slate-300">
+                    .NET Developer
+                </span>
+                <span class="text-4xl font-display">
+                    B C Williams | Dev
+                </span>
+                <span class="text-lg font-display">
+                    @headline
+                </span>
+            </div>
+        </div>
+        <p>
+            @leadText
+        </p>
+        <div class="mt-4 space-y-4 md:space-x-4 md:space-y-0 flex md:flex-row flex-col items-center md:justify-center">
+            <a href="/about-me" class="flex flex-row items-center outline basis-1/5 justify-center w-36 md:w-auto outline-2 outline-accent py-1 px-3 rounded-full dark:bg-slate-800 hover:bg-accent">
+                <span class="text-nowrap text-sm">Look Around</span>
+                <svg class="h-8 dark:stroke-slate-100 stroke-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 8V5C6 4.44772 6.44772 4 7 4H17C17.5523 4 18 4.44772 18 5V19C18 19.5523 17.5523 20 17 20H7C6.44772 20 6 19.5523 6 19V16M6 12H13M13 12L10.5 9.77778M13 12L10.5 14.2222" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href=".\Files\Resume_Benjamin_C_Williams_2024.01.29.pdf" class="flex flex-row items-center outline basis-1/5 justify-center w-36 md:w-auto outline-2 outline-accent py-1 px-3 rounded-full dark:bg-slate-800 transition-colors duration-200 hover:bg-accent">
+                <span class="text-nowrap text-sm">Resume</span>
+                <svg class="h-8 dark:stroke-slate-100 stroke-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M12 4V14M12 14L9.50008 11.5M12 14L14.5001 11.5M8.50008 14H8.00008C7.05727 14 6.58587 14 6.29298 14.2929C6.00008 14.5858 6.00008 15.0572 6.00008 16V18C6.00008 18.9428 6.00008 19.4142 6.29298 19.7071C6.58587 20 7.05727 20 8.00008 20H16.0001C16.9429 20 17.4143 20 17.7072 19.7071C18.0001 19.4142 18.0001 18.9428 18.0001 18V16C18.0001 15.0572 18.0001 14.5858 17.7072 14.2929C17.4143 14 16.9429 14 16.0001 14H15.5001" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+            </a>
+            <a href="/contact" class="flex flex-row items-center outline basis-1/5 justify-center w-36 md:w-auto outline-2 outline-accent py-1 px-3 rounded-full dark:bg-slate-800 transition-colors duration-200 hover:bg-accent">
+                <span class="text-nowrap text-sm">Contact Me</span>
+                <svg class="h-8 dark:stroke-slate-100 stroke-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <path d="M9 9H6M9 12H4M9 15H6M12.9825 7.61408L20 12L12.9825 16.3859C12.6108 16.6183 12.1412 16.2938 12.2272 15.8639L13 12L12.2272 8.13613C12.1412 7.70625 12.6108 7.38173 12.9825 7.61408Z" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+            </a>
+        </div>
+    </Modal>
+</div>
+
+<script src="/UI/Pages/Landing.razor.js"></script>
+<script defer>
+    cycleDescriptors();
+</script>
+
+@code{
+    string headline = "Definitely need some super punchy text here!";
+    
+    string leadText = "Versatile developer specialising in .NET Blazor with experience in Python w/ Flask, React w/ Express.js, and ASP.NET Razor Pages/MVC. Originally from a concert technical management background, Ben understands good client relationships and clear communication are paramount in delivering an exceptional result. He especially enjoys unique and interesting custom projects.";
+}

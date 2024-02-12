@@ -1,0 +1,13 @@
+﻿@inherits LayoutComponentBase
+@layout MainLayout
+
+<div class="h-fit flex flex-col items-center">
+    <NavMobile />
+    <NavDesktop />
+    <div class="pt-8 pb-[6rem]">
+        @Body
+    </div>
+</div>
+<div class="absolute bottom-0 left-[50%] -translate-x-1/2">
+    <Footer />
+</div>

@@ -1,0 +1,22 @@
+﻿@keyframes slide-text {
+    0% {
+        transform: rotateX(-70deg);
+        transform-origin: bottom;
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateX(0);
+        transform-origin: bottom;
+        opacity: 1;
+    }
+}
+
+#title-descriptors {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-in{
+    animation: slide-text 2.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}

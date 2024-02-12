@@ -1,0 +1,40 @@
+﻿@page "/contact/{Success:bool}"
+
+<PageTitle>B C Williams | Dev - Contact Me</PageTitle>
+<HeadContent>
+    <meta name="description" content="Contact form success page for B C Williams | Dev">
+</HeadContent>
+
+<Modal>
+    @if(Success)
+    {
+        <h1 class="self-center md:self-start text-3xl">Thanks for reaching out!</h1>
+        <p class="self-center md:self-start">
+            I typically try to respond to web form submissions within 24 hours. That being said, if I am on the move or deep in a contract it may take up to 3 working days. If you haven't heard from me by then, please feel free to reach out to me directly at <a class="no-underline hover:underline" href="mailto:info@bcwilliams.dev">info@bcwilliams.dev</a>.
+        </p>
+    }
+    else
+    {
+        <h1 class="self-center md:self-start text-3xl">Thanks for trying!</h1>
+        <p class="self-center md:self-start">
+            Unfortunately something went wrong with your submission possibly due to the api rate limit being exceeded. Please feel free to reach out to me directly at <a class="no-underline hover:underline" href="mailto:info@bcwilliams.dev">info@bcwilliams.dev</a>.
+        </p>
+        @if(!string.IsNullOrWhiteSpace(Message))
+        {
+            <p class="self-center md:self-start">
+                Because we all know how annoying it is to lose a message in the ether, here's the text of your submission:
+                <div class="italic !mt-2 px-4 whitespace-pre-wrap">
+                    @Message
+                </div>
+            </p>
+        }
+    }
+    <a class="mt-4 self-center md:self-end rounded-full w-fit outline outline-2 outline-accent dark:bg-slate-800 transition-colors duration-200 hover:bg-accent hover:text-slate-100 py-2 px-4" href="/")">Back to the Site</a>
+ </Modal>
+
+@code {
+    [Parameter]
+    public bool Success { get; set; } = false;
+    [SupplyParameterFromQuery]
+    public string? Message { get; set; }
+}
