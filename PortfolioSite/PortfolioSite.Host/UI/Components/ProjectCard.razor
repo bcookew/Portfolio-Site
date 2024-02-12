@@ -19,15 +19,15 @@
         <div class="flex flex-col justify-around space-y-4">
             @if (!string.IsNullOrEmpty(Project.RepoLink))
             {
-                <a class="px-4 py-2 text-center shadow-sm dark:shadow-lg dark:shadow-black shadow-black bg-slate-100 dark:bg-slate-900 hover:outline hover:outline-2 hover:outline-accent rounded-full tracking-wider uppercase text-base font-sm">GitHub Repo</a>
+                <a href="@Project.RepoLink" target="_blank" class="px-4 py-2 text-center shadow-sm dark:shadow-lg dark:shadow-black shadow-black bg-slate-100 dark:bg-slate-900 hover:outline hover:outline-2 hover:outline-accent rounded-full tracking-wider uppercase text-base font-sm">GitHub Repo</a>
             }
             @if (!string.IsNullOrEmpty(Project.DemoLink))
             {
-                <a class="px-4 py-2 text-center shadow-sm dark:shadow-lg dark:shadow-black shadow-black bg-slate-100 dark:bg-slate-900 hover:outline hover:outline-2 hover:outline-accent rounded-full tracking-wider uppercase text-base font-sm">Demo</a>
+                <a href="@Project.DemoLink" target="_blank" class="px-4 py-2 text-center shadow-sm dark:shadow-lg dark:shadow-black shadow-black bg-slate-100 dark:bg-slate-900 hover:outline hover:outline-2 hover:outline-accent rounded-full tracking-wider uppercase text-base font-sm">Demo</a>
             }
             @if (!string.IsNullOrEmpty(Project.LiveSite))
             {
-                <a class="px-4 py-2 text-center shadow-sm dark:shadow-lg dark:shadow-black shadow-black bg-slate-100 dark:bg-slate-900 hover:outline hover:outline-2 hover:outline-accent rounded-full tracking-wider uppercase text-base font-sm">Live Site</a>
+                <a href="@Project.LiveSite" target="_blank" class="px-4 py-2 text-center shadow-sm dark:shadow-lg dark:shadow-black shadow-black bg-slate-100 dark:bg-slate-900 hover:outline hover:outline-2 hover:outline-accent rounded-full tracking-wider uppercase text-base font-sm">Live Site</a>
             }
         </div>
     </div>
